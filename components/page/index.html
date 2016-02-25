@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <head>
-	<title>储鲜 | 你的冰箱助手-登录</title>
+	<title>储鲜 | 你的冰箱助手</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="initial-scale=1.0,width=device-width  maximum-scale=1.0, user-scalable=0" />
-	<link rel="stylesheet" type="text/css" href="./public/css/base.css">
-	<link rel="stylesheet" type="text/css" href="./public/css/main.css">
-	<link rel="stylesheet" type="text/css" href="./public/css/icon.css">
-	<link rel="stylesheet" type="text/css" href="./public/css/dialog.css">
-<!-- 	<script type="text/javascript" src="js/lib/zepto.min.js"></script> -->
-	<script type="text/javascript" src="./public/js/style.js"></script>
-	<script type="text/javascript" src="./public/js/deadline.js"></script>
-	<script type="text/javascript" src="./public/js/dialog.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
 <body>
-	<div>
-		hello,world!!!
+	<div id="app">
+		{{msg}
+		<div v-component="{{ currentView }}"></div>
 	</div>
+	<script src="/static/js/mod.js"></script>
+	<script>
+		require(['main/main']);
+	</script>
 </body>
 </html>
