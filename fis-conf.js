@@ -1,28 +1,24 @@
+fis.set('project.files', ['components/**','static/**']);
 
 fis.hook('module', {
     mode: 'mod'
-    /*paths : {
-        'main': 'components/component/main' 
-    }*/
 });
-
 
 //components下面的所有js资源都是组件化资源
 fis.match("components/**", {
     isMod: true,
     release: '/static/$0'
 });
-
-//doc目录不发布
+//oldviews目录不发布
 fis.match("oldviews/**", {
     release: false
 });
 
-/*fis.match("/bower_components/*.js", {
+fis.match("bower_components/**/*.js", {
     isMod: true,
-    useMap: true,
-    release: '/static/$0'
-});*/
+    useMap:true,
+    release:"/static/$0"
+});
 
 //component组件资源id支持简写
 fis.match(/^\/components\/component\/(.*)$/i, {
@@ -35,7 +31,7 @@ fis.match("components/page/(*.html)",{
     useCache : false
 });
 
-//sass的编译
+//less的编译
 fis.match('**/*.less', {
     rExt: '.css', // from .scss to .css
     parser: fis.plugin('less', {
