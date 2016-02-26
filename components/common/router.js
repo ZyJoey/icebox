@@ -6,7 +6,7 @@ var notFound = Vue.extend({
 Vue.use(VueRouter);
 
 var router = new VueRouter({
-	root:"/"
+	root:"/lis"
 });
 
 router.map({
@@ -14,23 +14,25 @@ router.map({
 		component:notFound
 	},
 	"/":{
-		component:require("component/test/test")
+		component:require("page/view/home/home"),
+		subRoutes:{
+			"/list":{
+				component:require("component/list/list")
+			}/*,
+			"/store":{
+
+			},
+			"/detail":{
+
+			},
+			"/search":{
+
+			}*/
+		}
 	},
-	"/list":{
-		component:require("")
-	},
-	"/store":{
-		component:require("")
-	},
-	"/detail":{
-		component:require("")
-	},
-	"/search":{
-		component:require("")
-	},
-	"/sign":{
-		component:require("")
-	}
+/*	"/sign":{
+		
+	}*/
 })
 
 router.start(app,"#app");

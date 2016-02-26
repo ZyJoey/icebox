@@ -1,0 +1,20 @@
+<div class="container">
+	<ul class="list">
+		<a href="javascript:;" v-for="food in lists">
+			<li class="list-li">
+			<span class="name">{{food.name}}</span>
+				<span class="net-content">{{food.num}}</span>
+				<span class="unit">{{food.cell}}</span>
+				<div class="list-right">
+					<p>
+						还有
+						<span class="deadline color-red">{{food.date}}</span>
+						<span class="deadline-unit">{{food.datecell}}</span>
+						过期
+					</p>
+					<button type="button" class="list-btn hide js-delete">已食用</button>
+				</div>
+			</li>
+		</a>
+	</ul>
+</div>
