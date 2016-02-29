@@ -3,12 +3,17 @@
 	padding: 0;
 }
 body{
+	width: 100%;
+	overflow: hidden;
 	font-family: "Microsoft YaHei";
 	/*background-color: #dedada;*/
 }
 a{
 	font-size: 14px;
 	text-decoration: none;
+}
+img{
+	max-width: 90%;
 }
 .view{
 	max-width: 800px;

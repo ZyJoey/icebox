@@ -1,0 +1,20 @@
+<div class="s-wrapper" v-bind:style="{height:$parent.height+'px'}">
+	<div class="s-header">
+		<img class="s-img" src="" alt="头像">
+		<div class="s-user">
+			<div class="user-msg"><span>{{user.name}}</span></div>
+			<div class="user-msg">加入日期: <span>{{user.birth}}</span></div>
+		</div>
+	</div>
+	<div class="s-main">
+		<ul>
+			<a v-link="{path:'/menu'}"><li><i class="sprite sprite-menu-chips"></i>储鲜分类</li></a>
+			<a v-link="{path:'/list'}"><li><i class="sprite sprite-menu-ice"></i>赏味期限</li></a>
+			<a v-link="{path:'/search'}"><li><i class="sprite sprite-menu-book"></i>搜索食谱</li></a>
+		</ul>
+		<ul>
+			<a><li><i class="sprite sprite-menu-hamburger"></i>口味变更</li></a>
+			<a><li><i class="sprite sprite-menu-juice"></i>修改密码</li></a>
+		</ul>
+	</div>
+</div>

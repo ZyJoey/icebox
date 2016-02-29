@@ -1,6 +1,4 @@
-
 /*登录注册界面*/
-
 .sign-bg{
 	background: url(../images/bg/sign_bg.png) no-repeat center top;
 	background-size: 100% auto;
@@ -50,8 +48,65 @@
 	color: #fff;
 }
 
+/*主界面侧边栏*/
+.s-wrapper{
+	position: absolute;
+	font-size:14px;
+	width: 80%;
+	color: #fff;
+	background: url("static/images/bg/sign_bg.png");
+	background-size: cover;
+	background-color: #2b383f;
+	overflow: hidden;
+	z-index: -1;
+}
+.s-header{
+	margin: 40px 20px 40px 50px;
+}
+.s-img{
+	width: 60px;
+	height: 60px;
+	background-color: #ccc;
+	border: transparent;
+	border-radius: 30px;
+	margin-right:20px;
+	float: left;
+}
+.s-user{
+	word-wrap:break-word;
+	word-break:break-all;
+	overflow:hidden;
+}
+.user-msg{
+	line-height:30px;
+}
+.s-main ul{ 
+	margin-bottom: 30px;
+	padding: 10px 0;
+	color: #fff;
+	background-color: rgba(145,121,102,0.4);
+}
+.s-main ul  li{
+	font-size: 14px;
+	padding:5px 0px 5px 40px;
+	line-height: 24px;
+}
+.s-main ul li i{
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.s-main ul a{
+	color: #fff;
+}
 /*主界面顶部*/
-
+.main{
+	position: relative;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	transition:all .3s ease;
+	box-shadow: -5px 0 10px #333;
+}
 .header{
 	position: relative;
 	padding: 6px 0;

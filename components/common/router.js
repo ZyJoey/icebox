@@ -6,7 +6,7 @@ var notFound = Vue.extend({
 Vue.use(VueRouter);
 
 var router = new VueRouter({
-	root:"/lis"
+	root:"/list"
 });
 
 router.map({
