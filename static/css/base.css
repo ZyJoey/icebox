@@ -58,3 +58,15 @@ img{
 	border: none;
 	font-family: "Microsoft Yahei";
 }
+.left-triangle{
+	width: 0;
+	height: 0;
+	border: 6px solid;
+	border-color: transparent transparent transparent #000; 
+}
+.down-triangle{
+	width: 0;
+	height: 0;
+	border: 6px solid;
+	border-color: #000 transparent transparent transparent; 
+}

@@ -1,3 +1,6 @@
+#app{
+	overflow: hidden;
+}
 /*登录注册界面*/
 .sign-bg{
 	background: url(../images/bg/sign_bg.png) no-repeat center top;
@@ -50,7 +53,7 @@
 
 /*主界面侧边栏*/
 .s-wrapper{
-	position: absolute;
+	position: fixed;
 	font-size:14px;
 	width: 80%;
 	color: #fff;
@@ -131,7 +134,26 @@
 }
 
 /*主界面列表*/
-
+.select-list{
+	width: 100%;
+	padding: 0 10px;
+	background-color: rgb(255,213,41);
+}
+.select-selected{
+	position: relative;
+}
+.select-selected i{
+	position: absolute;
+	top: 12px;
+	margin-left: 4px;
+}
+.select-list .option{
+	padding: 5px 0;
+	border-top: 1px dashed #191919;
+}
+.option.current{
+	background-color:rgb(247,242,65); 
+}
 .list{
 	background-color: #fff;
 	transition:all 2s;
@@ -237,5 +259,6 @@
 }
 .category{
 	padding: 40px 0;
-	box-shadow: 0 5px 10px #333;
+	margin-bottom: 2px;
+	box-shadow: 0 5px 10px #000;
 }

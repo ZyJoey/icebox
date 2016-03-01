@@ -1,4 +1,16 @@
 <div class="container">
+	<div class="select-list">
+		<div class="select-selected option" v-on:touchend="isShowSelect()">
+			{{select.sortord}}
+			<i v-bind:class="[showSelect ? 'down-triangle' : 'left-triangle']"></i>
+		</div>
+		<div class="select-option-wrapper" v-show="showSelect" @touchend.stop="selectSortord($event)">
+			<div class="option" :class="[select.sortord === sortord[0] ? 'current' : '']">{{sortord[0]}}</div>
+			<div class="option" :class="[select.sortord === sortord[1] ? 'current' : '']">{{sortord[1]}}</div>
+			<div class="option" :class="[select.sortord === sortord[2] ? 'current' : '']">{{sortord[2]}}</div>
+		</div>
+
+	</div>
 	<ul class="list">
 		<a href="javascript:;" v-for="food in lists">
 			<li class="list-li">
@@ -12,7 +24,6 @@
 						<span class="deadline-unit">{{food.datecell}}</span>
 						过期
 					</p>
-					<button type="button" class="list-btn hide js-delete">已食用</button>
 				</div>
 			</li>
 		</a>
