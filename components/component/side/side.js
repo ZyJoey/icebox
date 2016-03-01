@@ -8,5 +8,10 @@ module.exports = Vue.component("sideBar",{
 		return{
 			user:user
 		}
+	},
+	methods:{
+		showSide:function(){
+			return this.$parent.curLeft = 0;
+		}
 	}
 });

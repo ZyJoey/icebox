@@ -6,7 +6,7 @@ var notFound = Vue.extend({
 Vue.use(VueRouter);
 
 var router = new VueRouter({
-	root:"/list"
+	root:"/menu"
 });
 
 router.map({
@@ -18,11 +18,11 @@ router.map({
 		subRoutes:{
 			"/list":{
 				component:require("component/list/list")
+			},
+			"/menu":{
+				component:require("component/menu/menu")
 			}/*,
 			"/store":{
-
-			},
-			"/detail":{
 
 			},
 			"/search":{

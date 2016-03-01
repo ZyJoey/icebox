@@ -1,12 +1,12 @@
 /*过渡动画*/
- .change-rouer-transition{
-	transition:all .5s ease;
-	height: auto;
+ .change-transition{
+	transition:all 1s ease;
 	opacity: 1;
+	height: auto;
 	overflow: hidden;
 }
-.sidebar-enter,.sidebar-leave{
-	height: 0;
+.change-enter,.change-leave{
 	opacity:0;
+	height: 0;
 }
  

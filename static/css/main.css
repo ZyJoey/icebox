@@ -58,7 +58,6 @@
 	background-size: cover;
 	background-color: #2b383f;
 	overflow: hidden;
-	z-index: -1;
 }
 .s-header{
 	margin: 40px 20px 40px 50px;
@@ -207,4 +206,36 @@
 	border: none;
 	font-size: 16px;
 	background-color: transparent;
+}
+/*主菜单*/
+.category h2,.category h3{
+	color: #fff;
+	text-align: center;
+	line-height: 1.6;
+	font-weight: normal;
+}
+.category h2{
+	margin-bottom: 10px;
+}
+.category.all{
+	background-image: url("static/images/bg/category_all.png");
+}
+.category.meat{
+	background-image: url("static/images/bg/category_meat.png");
+}
+.category.fruit{
+	background-image:url("static/images/bg/category_fruit.png"); 
+}
+.category.staple{
+	background-image: url("static/images/bg/category_staple.png"); 
+}
+.category.dessert{
+	background-image: url("static/images/bg/category_dessert.png"); 	
+}
+.category.other{
+	background-image: url("static/images/bg/category_flavour.png"); 
+}
+.category{
+	padding: 40px 0;
+	box-shadow: 0 5px 10px #333;
 }
