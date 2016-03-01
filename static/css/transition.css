@@ -3,9 +3,11 @@
 	transition:all 1s ease;
 	opacity: 1;
 	height: auto;
+	padding-top: 37px;
 	overflow: hidden;
 }
 .change-enter,.change-leave{
 	opacity:0;
 	height: 0;
+	padding-top: 0;
 }

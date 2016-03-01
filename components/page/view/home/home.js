@@ -1,4 +1,4 @@
-require("component/list/list");
+require("component/menu/menu");
 require("component/side/side");
 
 module.exports = Vue.extend({

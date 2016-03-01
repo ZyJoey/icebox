@@ -4,7 +4,6 @@
 }
 body{
 	width: 100%;
-	overflow: hidden;
 	font-family: "Microsoft YaHei";
 	/*background-color: #dedada;*/
 }
@@ -69,4 +68,7 @@ img{
 	height: 0;
 	border: 6px solid;
 	border-color: #000 transparent transparent transparent; 
+}
+.rtl{
+	direction: rtl;
 }

@@ -21,6 +21,9 @@ router.map({
 			},
 			"/menu":{
 				component:require("component/menu/menu")
+			},
+			"add":{
+				component:require("component/add/add")
 			}/*,
 			"/store":{
 

@@ -1,0 +1,53 @@
+<div class="container">
+	<form>
+		<ul class="list clearfix">
+			<li>
+				<span class="name">名称</span>
+				<div class="list-right">
+					<input type="text" name="name" v-model="food.name" placeholder="食物名">
+				</div>
+			</li>
+			<li>
+				<span class="name">类别</span>
+				<div class="list-right">
+					<select class="rtl" name="category" v-model="food.category">
+						<option v-for="option in food.categoryOptions" :value="option.value">{{option.text}}</option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<span class="name">含量</span>
+				<div class="list-right">
+				<input type="tel" name="" value="" placeholder="数量"class="" size="4" v-model="food.num">
+				<select class="rtl" v-model="food.unit">
+					<option v-for="option in food.UnitOptions" :value="{{option.value}}">{{option.text}}</option>
+				</select>
+				</div>
+			</li>
+			<li>
+				<span class>生产日期</span>
+				<div class="list-right">
+					<input type="date" name="" v-model="food.prodDate" >
+				</div>
+			</li>
+			<li>
+				<span class>存放日期</span>
+				<div class="list-right">
+					<input type="date" name="" v-model="food.storedDate">
+				</div>
+			</li>
+			<li>
+				<span class>保质期</span>
+				<div class="list-right">
+					<input type="num" name="" v-model="food.saveTime">
+					<select name="" class="rtl" v-model="food.saveUnit">
+						<option v-model="option in food.saveUnitOptions" :value="option.value">{{option.text}}</option>
+					</select>
+				</div>
+			</li>
+		</ul>
+		<div class="detail-btn">
+			<button type="submit" class="btn form-btn">确认</button>
+		</div>
+	</form>
+</div>
