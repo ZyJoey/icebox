@@ -117,6 +117,7 @@
 	background-color: #0f222a;
 	color: #fff;
 	text-align: center;
+	z-index: 999;
 	transition:all .3s ease;
 }
 .header h2{
