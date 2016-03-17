@@ -16,7 +16,10 @@ food = function(param){
 		{"value":"ind","text":"个"},
 		{"value":"pk","text":"包"},
 		{"value":"bottle","text":"瓶"},
-		{"value":"bag","text":"袋"}
+		{"value":"bag","text":"袋"},
+		{"value":"item","text":"条"},
+		{"value":"box","text":"盒"},
+		{"value":"piece","text":"件"}
 	];
 	obj.categoryOptions = [
 		{"value":"meet","text":"肉类"},
