@@ -1,4 +1,8 @@
 <div class="container">
+	<div class="wrap-img">
+		<input type="file" name="" value="" accept="image/gif, image/jpeg, image/png">
+		<img src="static/images/bg/category_dessert.png"alt="">
+	</div>
 	<form>
 		<ul class="list clearfix">
 			<li>
@@ -11,7 +15,7 @@
 				<span class="name">类别</span>
 				<div class="list-right">
 					<select class="rtl" name="category" v-model="food.category">
-						<option v-for="option in food.categoryOptions" :value="option.value">{{option.text}}</option>
+						<option v-for="option in food.categoryOptions" :value="option">{{option.text}}</option>
 					</select>
 				</div>
 			</li>
@@ -20,7 +24,7 @@
 				<div class="list-right">
 				<input type="tel" name="" value="" placeholder="数量"class="" size="4" v-model="food.num">
 				<select class="rtl" v-model="food.unit">
-					<option v-for="option in food.UnitOptions" :value="{{option.value}}">{{option.text}}</option>
+					<option v-for="option in food.UnitOptions" :value="option">{{option.text}}</option>
 				</select>
 				</div>
 			</li>
@@ -39,13 +43,24 @@
 			<li>
 				<span class>保质期</span>
 				<div class="list-right">
-					<input type="num" name="" v-model="food.saveTime">
-					<select name="" class="rtl" v-model="food.saveUnit">
-						<option v-model="option in food.saveUnitOptions" :value="option.value">{{option.text}}</option>
+					<input type="num" name="" v-model="food.saveTime" placeholder="保质期">
+					<select class="rtl" v-model="food.saveUnit">
+						<option v-for="option in food.saveUnitOptions" :value="option">{{option.text}}</option>
 					</select>
+				</div>
+			</li> 
+			<li class="no-border" v-show="isDetail">
+				<div class="list-right">
+					<p>
+						还有
+						<span class="deadline color-red">两</span>
+						<span class="deadline-unit">天</span>
+						过期
+					</p>
 				</div>
 			</li>
 		</ul>
+
 		<div class="detail-btn">
 			<button type="submit" class="btn form-btn">确认</button>
 		</div>
