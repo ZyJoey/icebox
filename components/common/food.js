@@ -34,8 +34,9 @@ food = function(param){
 	obj.storedDate = param.storedDate;//存放日期
 	obj.saveTime = param.saveTime; //保质期
 	obj.saveUnit = param.saveUnit;	//保质期单位
-	obj.img = param.saveImg			//图片
-	
+	obj.img = param.saveImg;			//图片
+	obj.position = param.position;		//图片定位
+
 	return obj;
 };
 

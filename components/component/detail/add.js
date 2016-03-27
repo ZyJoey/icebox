@@ -1,5 +1,6 @@
-require("common/util");
+var util = require("common/util");
 require("common/food");
+require("component");
 
 module.exports = Vue.extend({
 	inherit:true,
@@ -18,9 +19,14 @@ module.exports = Vue.extend({
 		createFood.unit = createFood.UnitOptions[0];
 		createFood.category = createFood.categoryOptions[0];
 		createFood.saveUnit = createFood.saveUnitOptions[0];
+		createFood.saveImg = "";
 		return{
-			"food":createFood
+			"food":createFood,
+			"imgPosition":"50% 50%"
 		}
+	},
+	methods:{
+		
 	}
 
 })

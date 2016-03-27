@@ -198,14 +198,32 @@
 	top: 2px;
 } */
 /*详情页*/
-.wrap-img img{
+.wrap-img .set-img{
+	position: relative;
 	display: block;
 	width: 95%;
-	height: auto;
-	max-height: 150px;
+	height: 150px;
 	margin: 10px auto;
 	border-radius: 10px;
 	background-color: #333;
+	background-repeat: no-repeat;
+}
+.set-img .input-img{
+	position: relative;
+	z-index: 999;
+	display: block;
+	width: 100%;
+	height: 150px;
+	opacity: 0;
+}
+.set-img p{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	color: #fff;
+	font-size: 24px;
+	line-height: 150px;
+	margin-left: -91px;
 }
 .list .no-border{
 	border: none;
