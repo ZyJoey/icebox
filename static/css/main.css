@@ -53,7 +53,7 @@
 
 /*主界面侧边栏*/
 .s-wrapper{
-	position: fixed;
+	position: absolute;
 	font-size:14px;
 	width: 80%;
 	color: #fff;
