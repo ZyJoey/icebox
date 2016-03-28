@@ -141,7 +141,6 @@
 /*主界面列表*/
 .select-list{
 	width: 100%;
-	padding: 0 10px;
 	background-color: rgb(255,213,41);
 }
 .select-selected{
@@ -153,11 +152,12 @@
 	margin-left: 4px;
 }
 .select-list .option{
-	padding: 5px 0;
+	padding: 5px 10px;
 	border-top: 1px dashed #191919;
 }
 .option.current{
-	background-color:rgb(247,242,65); 
+	color:#fff;
+	background-color:rgb(139,0,0); 
 }
 .list{
 	background-color: #fff;
