@@ -1,0 +1,24 @@
+<div class="container">
+	<form class="search-form">
+		<ul class="label-wrapper" @touchend.stop="selectLabel($event)">
+			<li href="" class="search-label" v-for="item in labelItems" data-index="{{$index}}"  v-bind:class="{'selected':isSelected[$index]}">{{item.name}}</li>
+<!-- 			<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">鸡肉</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">汉堡包</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">红枣酸奶</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">鸡肉</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">绿豆</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">可乐</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">鸡肉</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">绿豆</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">可乐</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">鸡肉</li>
+<li href="" class="search-label" data-index="1" :class="{'selected':isSelected[$index]}">绿豆</li> -->
+		</ul>
+		<div class="text-line">
+			<input type="text" class="text" name="" placeholder="想吃什么呢……" v-model="searchThing"> 
+		</div>
+		<div class="detail-btn">
+			<button type="submit" class="btn form-btn">搜 索</button>
+		</div>
+	</form>
+</div>

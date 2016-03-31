@@ -290,3 +290,48 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+/* 搜索页面 */
+.label-wrapper{
+	margin: 10px 7px; 
+	text-align: center;
+}
+.search-label{
+	margin-bottom:10px;  
+	display:inline-block;
+	padding: 5px 10px;
+	color: #fff;
+	background-color: rgb(255,213,41);
+	border-radius: 20px;
+}
+.search-label.selected{
+	background-color: rgb(255,121,41);
+}
+.search-form .detail-btn{
+	margin-top: 20px;
+}
+.text-line{
+	margin: 0 7px;
+}
+.text-line .text{
+	display: block;
+	width:100%;
+	font-size: 14px;
+	padding: 8px 7px;
+	margin: 0 auto;
+	border: 1px solid #0f222a;
+
+	/*移除边框阴影样式*/
+	box-sizing:border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    	appearance: none;
+}
+
+/* .search-btn{
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+
+}
+ */
