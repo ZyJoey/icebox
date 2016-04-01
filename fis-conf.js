@@ -31,14 +31,6 @@ fis.match("components/page/(*.html)",{
     useCache : false
 });
 
-//less的编译
-fis.match('**/*.less', {
-    rExt: '.css', // from .scss to .css
-    parser: fis.plugin('less', {
-        //fis-parser-sass option
-    })
-});
-
 //文章封面和作者头像等动态图片地址不加hash
 fis.match(/static\/images\/.*\.(jpeg|jpg|png)$/,{
     useHash: false
@@ -77,4 +69,8 @@ fis.media('prod')
     })
     .match('**.css', {
         optimizer: fis.plugin('clean-css')
-    });
+    })
+    .match(/^\/server\/(.*)$/i, {
+        useCompile: false,
+        release: '/server/$1'
+    })
