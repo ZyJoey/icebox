@@ -20,19 +20,22 @@ module.exports = Vue.extend({
 	methods:{
 		selectLabel:function(event){
 			var target = event.target ,
-				rexexp;
+				rexexp,
+				index = Number(target.getAttribute("data-index"));
 			if(!target.nodeName == "LI"){
 				return false;
 			}
 			if(/selected/.test(target.className)){
-				this.isSelected[target.getAttribute("data-index")] = false;
-				regexp = new RegExp(target.innerText+/\s?/);
-				this.searchThing.replace(regexp,"");
-
+				regexp = new RegExp(target.innerText+"\\s?");
+				this.searchThing = this.searchThing.replace(regexp,"");
+				this.isSelected.$set([index],false);
 			}else{
-				this.isSelected[target.getAttribute("data-index")] = true;
 				this.searchThing += target.innerText + " ";
+				this.isSelected.$set([index],true);
 			}
+		},
+		searchFood:function(){
+			window.location.assign("http://m.haodou.com/recipe/search?keyword="+this.searchThing);
 		}
 	}
 })
