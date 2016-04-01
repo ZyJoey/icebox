@@ -3,14 +3,16 @@ module.exports = Vue.extend({
 	template:__inline("list.html"),
 	data:function(){
 		//伪造数据
-		var lists = [
-			{"name":"可乐","num":"1","cell":"瓶","date":"1","datecell":"天"},
-			{"name":"可乐","num":"1","cell":"瓶","date":"2","datecell":"天"}
-		],
+		var lists = [],
 		sortord = ["按即将过期时间排序(默认)","按放入时间排序(正序)","按放入时间排序(倒序)"],
 		select = {
 			"sortord":sortord[0]
 		}
+		this.$http.get('server/').then(function(data){
+			if(data.status == 200){
+				this.lists = data.data;	
+			}
+		})
 		return {
 			lists:lists,
 			sortord:sortord,

@@ -57,7 +57,7 @@
 	font-size:14px;
 	width: 80%;
 	color: #fff;
-	background: url("static/images/bg/sign_bg.png");
+	background: url("../images/bg/sign_bg.png");
 	background-size: cover;
 	background-color: #2b383f;
 	overflow: hidden;
@@ -266,22 +266,22 @@
 	margin-bottom: 10px;
 }
 .category.all{
-	background-image: url("static/images/bg/category_all.png");
+	background-image: url("../images/bg/category_all.png");
 }
 .category.meat{
-	background-image: url("static/images/bg/category_meat.png");
+	background-image: url("../images/bg/category_meat.png");
 }
 .category.fruit{
-	background-image:url("static/images/bg/category_fruit.png"); 
+	background-image:url("../images/bg/category_fruit.png"); 
 }
 .category.staple{
-	background-image: url("static/images/bg/category_staple.png"); 
+	background-image: url("../images/bg/category_staple.png"); 
 }
 .category.dessert{
-	background-image: url("static/images/bg/category_dessert.png"); 	
+	background-image: url("../images/bg/category_dessert.png"); 	
 }
 .category.other{
-	background-image: url("static/images/bg/category_flavour.png"); 
+	background-image: url("../images/bg/category_flavour.png"); 
 }
 .category{
 	padding: 40px 0;
