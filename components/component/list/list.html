@@ -10,7 +10,7 @@
 
 	</div>
 	<ul class="list">
-		<a href="javascript:;" v-for="food in lists">
+		<a href="javascript:;" v-for="food in lists | orderBy listOrder">
 			<li class="list-li">
 			<span class="name">{{food.name}}</span>
 				<span class="net-content">{{food.num}}</span>
