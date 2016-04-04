@@ -26,15 +26,22 @@ router.map({
 			"detail":{
 				component:require("component/detail/detail")
 			},
-			"/search":{
+			"search":{
 				component:require("component/search/search")
 			}
 		}
 	},
-/*	"/sign":{
-		
-	}*/
+	"/sign":{
+		component:require('page/view/sign/sign'),
+		subRoutes:{
+			"/":{
+				component:require("component/sign/sign_up")
+			},
+			"in":{
+				component:require("component/sign/sign_in")
+			}
+		}
+	}
 })
 
 router.start(app,"#app");
-//router.go('/menu');

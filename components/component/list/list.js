@@ -7,7 +7,8 @@ module.exports = Vue.extend({
 		sortord = ["按即将过期时间排序(默认)","按放入时间排序(正序)","按放入时间排序(倒序)"],
 		select = {
 			"sortord":sortord[0]
-		}
+		},
+		listOrder = 'date';
 		this.$http.get('server/').then(function(data){
 			if(data.status == 200){
 				this.lists = data.data;	
@@ -17,7 +18,8 @@ module.exports = Vue.extend({
 			lists:lists,
 			sortord:sortord,
 			showSelect:false,
-			select:select
+			select:select,
+			listOrder:listOrder
 		}
 	},
 	methods:{
