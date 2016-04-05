@@ -17,7 +17,14 @@ module.exports = Vue.extend({
 				dialog.info({content:"请输入密码"})
 			}
 			/*数据接口*/
-			//this.$router.go('/');
+			this.$http.post('/server/register',{'username':this.user.username,'password':md5(this.user.password)}).then(function (data){
+				console.log(data);
+				if(data.data.code == 0){
+					this.$router.go('/');
+				}else{
+					dialog.info({"content":data.data.msg});
+				}
+			})
 		}
 	}
 })
