@@ -14,10 +14,10 @@ module.exports = Vue.extend({
 				dialog.info({content:"请输入用户名"});
 				return false;
 			}
-			if(/^[\_|\.]*$/.test(this.user.name)){
+/*			if(/^[\_|\.]*$/.test(this.user.name)){
 				dialog.info({content:"用户名请勿使用非法字符"});
 				return false;
-			}
+			}*/
 			if(!this.user.password || !this.user.repeatpwd){
 				dialog.info({content:"请输入密码"});
 				return false;
@@ -29,6 +29,13 @@ module.exports = Vue.extend({
 				return false;
 			}
 			/*数据接口*/
+			this.$http.post('server/createUser',{'username':this.user.username,'password':md5(this.user.password)}).then(function (data){
+				if(data.data.code == 0){
+					this.$router.go('/');
+				}else{
+					dialog.info(data.data.msg);
+				}
+			})
 		}
 	}
 })

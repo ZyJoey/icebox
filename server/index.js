@@ -1,18 +1,21 @@
 'use strict';
 
 var http = require('http'),
+	crud = require('./crud'),
 	express = require('express'),
 	app = express(),
 	server = http.createServer(app);
 
-app.get('/',function(request,response){
-	var arr = [
-			{"name":"可乐","num":"2","cell":"瓶","date":"1","datecell":"天"},
-			{"name":"养乐多","num":"1","cell":"瓶","date":"2","datecell":"天"},
-			{"name":"橙汁","num":"3","cell":"瓶","date":"1","datecell":"天"},
-			{"name":"芬达","num":"1","cell":"瓶","date":"2","datecell":"天"},
-		];
-	response.send(arr);
+app.configure(function(){
+	app.use(express.logger('dev')); 
+	//app.use(express.methodOverride());
+	app.use(express.bodyParser());
+	
 });
+app.post('/createUser',crud.createUser);
 
+app.get('/',function(req,res){
+	res.send("hello world");
+});
 server.listen(3000);
+console.log('Listening on port 3000...');
