@@ -18,7 +18,6 @@ module.exports = Vue.extend({
 			}
 			/*数据接口*/
 			this.$http.post('/server/register',{'username':this.user.username,'password':md5(this.user.password)}).then(function (data){
-				console.log(data);
 				if(data.data.code == 0){
 					this.$router.go('/');
 				}else{
