@@ -1,6 +1,6 @@
 <div class="s-wrapper" v-bind:style="{height:$parent.height+'px'}">
 	<div class="s-header">
-		<img class="s-img" src="" alt="头像">
+		<img class="s-img" :src="user.photo" alt="头像">
 		<div class="s-user">
 			<div class="user-msg"><span>{{user.username}}</span></div>
 			<div class="user-msg">加入日期: <span>{{user.join_date}}</span></div>

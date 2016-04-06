@@ -10,6 +10,7 @@ var 	server = new Server('localhost',27017,{auto_reconnect: true},{safe:true}),
 
 db.open();
 
+/*用户注册*/
 exports.createUser = function(req,res){
 	var username = req.body.username,
 		password = req.body.password,
@@ -60,6 +61,7 @@ exports.createUser = function(req,res){
 	}
 };
 
+/*用户登录*/
 exports.register = function(req,res){
 	var username = req.body.username,
 		password = req.body.password,
@@ -83,6 +85,8 @@ exports.register = function(req,res){
 		
 	})
 }
+
+/*查询用户基本信息*/
 exports.getUser = function(req,res){
 	var 	username = req.session.username,
 		data = {};
@@ -104,4 +108,27 @@ exports.getUser = function(req,res){
 		}
 		
 	})
+}
+
+/*查询用户存储列表*/
+exports.foodList = function(req,res){
+	var username = req.session.username,
+		data = {};
+	db.collection('list').findOne({"username":username},function(err,result){
+		if(result){
+			data.code = 0;
+			data.msg = "查询成功";
+			data.result = result.foodList;
+			res.json(data);
+		}else{
+			data.code = 1;
+			data.msg = "查询失败";
+			res.send(data);
+		}
+	})
+}
+
+/*新增列表记录*/
+exports.createFood = function(req,res){
+	
 }

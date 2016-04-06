@@ -16,11 +16,14 @@ app.configure(function(){
 });
 
 app.post('/createUser',crud.createUser);
+
 app.post('/register',crud.register);
+
 app.get('/getUser',crud.getUser);
 
-app.get('/',function(req,res){
-	res.send("hello world");
-});
+app.post('/createFood',crud.createFood);
+
+app.get('/foodList',crud.foodList);
+
 server.listen(3000);
 console.log('Listening on port 3000...');
