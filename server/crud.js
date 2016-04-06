@@ -100,7 +100,7 @@ exports.getUser = function(req,res){
 					join_date :result.join_date
 				}
 			}
-			res.send(data);
+			res.json(data);
 		}else{
 			data.code = 1;
 			data.msg = "查询失败";
@@ -129,6 +129,47 @@ exports.foodList = function(req,res){
 }
 
 /*新增列表记录*/
-exports.createFood = function(req,res){
+exports.createFood = function(req,res,newPath){
+	var username = req.session.username,
+		data = {},
+		autoindex;
+	db.collection('list').findOne({"username":username},function(err,result){
+		if(result){
+			if(result.foodList.length === 0){
+				autoindex = 0;
+			}else{
+				autoindex = result.foodList[length-1].id++;
+			}
+		}else{
+			data.code = 1;
+			data.msg = "查询失败";
+			res.send(data);
+		}
+		updateFood();
+	})
+	function updateFood(){
+		db.collection('list').update({"username":username},{$push:{"foodList":{
+			"id":autoindex,
+			"name": req.body.name,
+			"category":req.body.category,
+			"num": req.body.num,
+			"unit":req.body.unit,
+			"prodDate":req.body.prodDate,
+			"storedDate":req.body.storedDate,
+			"saveTime":req.body.saveTime,
+			"saveImg":newPath,
+			"imgPosition":req.body.imgPosition
+		}}},function(err,result){
+			if(!err){
+				data.code = 0;
+				data.msg = "保存成功";
+				res.send(data);
+			}else{
+				data.code = 1;
+				data.msg = "保存失败";
+				res.send(data);
+			}
+		})
+	}
 	
 }

@@ -14,7 +14,7 @@ var Food = {
 		{"value":"meet","text":"肉类"},
 		{"value":"fruit","text":"蔬果"},
 		{"value":"staple","text":"主食"},
-		{"value":"dessert","text":"甜食"},
+		{"value":"dessert","text":"小食"},
 		{"value":"other","text":"其它"}
 	],
 	saveUnitOptions : [
@@ -34,8 +34,8 @@ food = function(param){
 	obj.storedDate = param.storedDate;//存放日期
 	obj.saveTime = param.saveTime; //保质期
 	obj.saveUnit = param.saveUnit;	//保质期单位
-	obj.img = param.saveImg;			//图片
-	obj.position = param.position;		//图片定位
+	obj.saveImg = param.saveImg;			//图片
+	obj.imgPosition = param.imgPosition;		//图片定位
 
 	return obj;
 };

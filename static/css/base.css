@@ -57,6 +57,9 @@ img{
 	border: none;
 	font-family: "Microsoft Yahei";
 }
+button.btn-default{
+	background-color: #ccc;
+}
 .left-triangle{
 	width: 0;
 	height: 0;

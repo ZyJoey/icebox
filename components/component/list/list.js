@@ -1,3 +1,4 @@
+require("common/dialog");
 module.exports = Vue.extend({
 	inherit:true,
 	template:__inline("list.html"),
@@ -9,9 +10,11 @@ module.exports = Vue.extend({
 			"sortord":sortord[0]
 		},
 		listOrder = 'date';
-		this.$http.get('server/').then(function(data){
-			if(data.status == 200){
-				this.lists = data.data;	
+		this.$http.get('server/foodList').then(function(data){
+			if(data.data.code == 0){
+				this.lists = data.data.data;	
+			}else{
+				dialog.info(data.data.msg);
 			}
 		})
 		return {

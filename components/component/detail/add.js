@@ -26,7 +26,12 @@ module.exports = Vue.extend({
 		}
 	},
 	methods:{
-		
+		submitForm:function(){
+			var option = JSON.stringify(this.food);
+			this.$http.post('server/createFood',option).then(function (data){
+				console.log(data);
+			})
+		}
 	}
 
 })

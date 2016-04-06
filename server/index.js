@@ -2,6 +2,7 @@
 
 var http = require('http'),
 	crud = require('./crud'),
+	photo = require('./photo'),
 	express = require('express'),
 	app = express(),
 	server = http.createServer(app),
@@ -12,6 +13,7 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.session({secret:'whatever',store:store}));
+	app.set('photos',__dirname + '/photos');
 	
 });
 
@@ -21,7 +23,10 @@ app.post('/register',crud.register);
 
 app.get('/getUser',crud.getUser);
 
-app.post('/createFood',crud.createFood);
+app.post('/createFood',function(req,res){
+	var newPath = photo.uploadPhoto(req,res);
+	crud.createFood(req,res,newPath);
+});
 
 app.get('/foodList',crud.foodList);
 

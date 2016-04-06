@@ -42,9 +42,16 @@ move = (function(element,startEvent,fn){
 util.preventDefault = function(event){
 	event.preventDefault();
 }
-
+util.isFunction = function(data) {
+	return Object.prototype.toString.call(data)=== '[object Function]';
+}
+util.isObject = function(data){
+	return Object.prototype.toString.call(data) === '[object Object]';
+}
 module.exports = {
 	Date:Date,
 	move:move,
-	preventDefault:util.preventDefault
+	preventDefault:util.preventDefault,
+	isFunction:util.isFunction,
+	isObject:util.isObject
 }
