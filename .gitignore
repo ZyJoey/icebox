@@ -3,7 +3,6 @@ dist/*
 dest/*
 *.log
 .idea
-*/images
 oldviews
 task.md
 bower_components
