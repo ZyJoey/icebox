@@ -1,4 +1,5 @@
 var util = require("common/util");
+var dialog = require("common/dialog");
 require("common/food");
 require("component");
 
@@ -29,7 +30,16 @@ module.exports = Vue.extend({
 		submitForm:function(){
 			var option = JSON.stringify(this.food);
 			this.$http.post('server/createFood',option).then(function (data){
-				console.log(data);
+				if(data.data.code === 0){
+					dialog.confirm({content:"保存成功,是否继续添加？"},function(){
+						this.$router.go('/add');
+					},function(){
+						this.$router.go('/list');
+					});
+
+				}else{
+					dialog.info({content:data.data.msg});
+				}
 			})
 		}
 	}

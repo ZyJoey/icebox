@@ -23,7 +23,7 @@ router.map({
 			"add":{
 				component:require("component/detail/add")
 			},
-			"detail":{
+			"detail/:id":{
 				component:require("component/detail/detail")
 			},
 			"search":{

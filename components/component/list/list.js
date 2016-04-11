@@ -12,7 +12,7 @@ module.exports = Vue.extend({
 		listOrder = 'date';
 		this.$http.get('server/foodList').then(function(data){
 			if(data.data.code == 0){
-				this.lists = data.data.data;	
+				this.lists = data.data.result;	
 			}else{
 				dialog.info(data.data.msg);
 			}

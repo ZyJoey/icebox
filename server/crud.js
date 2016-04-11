@@ -132,14 +132,17 @@ exports.foodList = function(req,res){
 exports.createFood = function(req,res,newPath){
 	var username = req.session.username,
 		data = {},
-		autoindex;
+		autoindex,
+		length;
 	db.collection('list').findOne({"username":username},function(err,result){
 		if(result){
 			if(result.foodList.length === 0){
 				autoindex = 0;
 			}else{
-				autoindex = result.foodList[length-1].id++;
+				length = result.foodList.length;
+				autoindex = result.foodList[length-1].id + 1;
 			}
+			console.log(autoindex);
 		}else{
 			data.code = 1;
 			data.msg = "查询失败";
@@ -157,6 +160,7 @@ exports.createFood = function(req,res,newPath){
 			"prodDate":req.body.prodDate,
 			"storedDate":req.body.storedDate,
 			"saveTime":req.body.saveTime,
+			"saveUnit":req.body.saveUnit,
 			"saveImg":newPath,
 			"imgPosition":req.body.imgPosition
 		}}},function(err,result){
