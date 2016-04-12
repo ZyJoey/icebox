@@ -23,7 +23,7 @@ exports.uploadImg = function(req,res){
 				if(!err){
 					data.code = 0;
 					data.msg = "图片上传成功";
-					data.result = "http://127.0.0.1:3000/photos/"+newImageName;
+					data.result = "http://127.0.0.1:3000/photo/"+newImageName;
 					res.send(data);
 				}else{
 					data.code = 1;
@@ -37,5 +37,7 @@ exports.uploadImg = function(req,res){
 }
 exports.showImg = function(req,res){
 	var id = req.params.id;
-
+	var img = fs.readFileSync(__dirname + "\\photos\\" + id);
+	res.writeHead(200, {'Content-Type': 'image/jpg' });
+	res.end(img, 'binary');
 }
