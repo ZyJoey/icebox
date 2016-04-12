@@ -4,5 +4,6 @@ dest/*
 *.log
 .idea
 oldviews
+server/photos/*
 task.md
 bower_components

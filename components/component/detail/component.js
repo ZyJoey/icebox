@@ -39,7 +39,7 @@ module.exports = Vue.component("uploadImage",{
 		stopMove:function($event){
 			var setImg = document.getElementById("setImg");
 			document.removeEventListener("touchmove",util.preventDefault,false);
-			this.$parent.imgPosition = "50% " + setImg.style.backgroundPositionY;
+			this.$parent.food.imgPosition = "50% " + setImg.style.backgroundPositionY;
 		}
 	},
 	computed:{

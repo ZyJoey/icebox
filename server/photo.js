@@ -2,12 +2,14 @@
 
 var fs = require('fs');
 
-exports.uploadPhoto = function(req,res){
+exports.uploadImg = function(req,res){
 	var data = {};
 	if(!req.files){
-		return "";
+		data.code = 1;
+		data.msg = "未选择上传图片";
+		res.send(data);
 	}
-	fs.readFile(req.files.image.path,function(err,data){
+	fs.readFile(req.files.image.path,function(err,result){
 		var imageName,newPath;
 			imageName = req.files.image.name;
 		if(!imageName){
@@ -15,17 +17,24 @@ exports.uploadPhoto = function(req,res){
 			data.msg = "图片上传失败";
 			res.send(data);
 		}else{
-			newPath = __dirname + '/photos/' + imageName;
-			fs.writeFile(newPath,data,function(err){
+			newImageName = Date.now()+imageName.split('.')[1]
+			newPath = __dirname + '\\photos\\' + newImageName;
+			fs.writeFile(newPath,result,function(err){
 				if(!err){
-					return newPath;
+					data.code = 0;
+					data.msg = "图片上传成功";
+					data.result = newImageName;
+					res.send(data);
 				}else{
 					data.code = 1;
 					data.msg = "图片上传失败";
-					console.log("cannot writeFile");
+					console.log(err);
 					res.send(data);
 				}
 			})
 		}
 	})
+}
+exports.showImg = function(req,res){
+	
 }

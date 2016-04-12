@@ -13,7 +13,6 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.session({secret:'whatever',store:store}));
-	app.set('photos',__dirname + '/photos');
 	
 });
 
@@ -23,12 +22,13 @@ app.post('/register',crud.register);
 
 app.get('/getUser',crud.getUser);
 
-app.post('/createFood',function(req,res){
-	var newPath = photo.uploadPhoto(req,res);
-	crud.createFood(req,res,newPath);
-});
+app.post('/uploadImg',photo.uploadImg);
+
+app.post('/createFood',crud.createFood);
 
 app.get('/foodList',crud.foodList);
+
+app.get('/photo/:id',photo.showImg);
 
 server.listen(3000);
 console.log('Listening on port 3000...');

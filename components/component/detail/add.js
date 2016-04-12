@@ -28,13 +28,27 @@ module.exports = Vue.extend({
 	},
 	methods:{
 		submitForm:function(){
-			var option = JSON.stringify(this.food);
+			var option ;
+			var fileUploadFormData = new FormData();
+			var uploadImg = document.getElementById("uploadImg");
+			if(this.food.saveImg !== ""){
+				fileUploadFormData.append('image',uploadImg.files[0]);
+				this.$http.post('server/uploadImg',fileUploadFormData).then(function (data){
+					if(data.data.code === 0){
+						this.food.saveImg = data.data.result;
+					}else{
+						dialog.info({content:data.data.msg});
+						return false;
+					}
+				})
+			}
+			option = JSON.stringify(this.food);
 			this.$http.post('server/createFood',option).then(function (data){
 				if(data.data.code === 0){
 					dialog.confirm({content:"保存成功,是否继续添加？"},function(){
-						this.$router.go('/add');
+						this.$route.go('/add');
 					},function(){
-						this.$router.go('/list');
+						this.$route.go('/list');
 					});
 
 				}else{
