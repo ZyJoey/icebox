@@ -60,7 +60,7 @@
 		</ul>
 		<div class="detail-btn">
 			<button type="button" class="btn form-btn" :class="{'btn-default':!$validation1.valid}"
-			 @click.stop="submitForm">确 认</button>
+			:disabled="!$validation1.valid" @click.stop="submitForm">确 认</button>
 		</div>
 	</form>
 	</validator>

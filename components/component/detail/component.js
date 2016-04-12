@@ -16,6 +16,7 @@ module.exports = Vue.component("uploadImage",{
 				setImg.style.backgroundPosition = "50% 50%";
 			}
 			reader.readAsDataURL($event.target.files[0]);
+			this.$parent.food.saveImg = $event.target.files[0].name;
 			this.upLoadText = "";
 			this.isChangeImg = true;
 		},

@@ -10,20 +10,20 @@ exports.uploadImg = function(req,res){
 		res.send(data);
 	}
 	fs.readFile(req.files.image.path,function(err,result){
-		var imageName,newPath;
+		var imageName,newPath,newImageName;
 			imageName = req.files.image.name;
 		if(!imageName){
 			data.code = 1;
 			data.msg = "图片上传失败";
 			res.send(data);
 		}else{
-			newImageName = Date.now()+imageName.split('.')[1]
-			newPath = __dirname + '\\photos\\' + newImageName;
+			newImageName = Date.now()+"."+imageName.split('.')[1]
+			newPath = __dirname + "\\photos\\" + newImageName;
 			fs.writeFile(newPath,result,function(err){
 				if(!err){
 					data.code = 0;
 					data.msg = "图片上传成功";
-					data.result = newImageName;
+					data.result = "http://127.0.0.1:3000/photos/"+newImageName;
 					res.send(data);
 				}else{
 					data.code = 1;
@@ -36,5 +36,6 @@ exports.uploadImg = function(req,res){
 	})
 }
 exports.showImg = function(req,res){
-	
+	var id = req.params.id;
+
 }

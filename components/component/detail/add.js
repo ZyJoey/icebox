@@ -28,7 +28,8 @@ module.exports = Vue.extend({
 	},
 	methods:{
 		submitForm:function(){
-			var option ;
+			var option,
+				that = this ;
 			var fileUploadFormData = new FormData();
 			var uploadImg = document.getElementById("uploadImg");
 			if(this.food.saveImg !== ""){
@@ -36,25 +37,30 @@ module.exports = Vue.extend({
 				this.$http.post('server/uploadImg',fileUploadFormData).then(function (data){
 					if(data.data.code === 0){
 						this.food.saveImg = data.data.result;
+						createFood();
 					}else{
 						dialog.info({content:data.data.msg});
 						return false;
 					}
 				})
+			}else{
+				createFood();
 			}
-			option = JSON.stringify(this.food);
-			this.$http.post('server/createFood',option).then(function (data){
-				if(data.data.code === 0){
-					dialog.confirm({content:"保存成功,是否继续添加？"},function(){
-						this.$route.go('/add');
-					},function(){
-						this.$route.go('/list');
-					});
+			function createFood(){
+				option = JSON.stringify(that.food);
+				that.$http.post('server/createFood',option).then(function (data){
+					if(data.data.code === 0){
+						dialog.confirm({content:"保存成功,是否继续添加？"},function(){
+							that.$router.go('/add');
+						},function(){
+							that.$router.go('/list');
+						});
 
-				}else{
-					dialog.info({content:data.data.msg});
-				}
-			})
+					}else{
+						dialog.info({content:data.data.msg});
+					}
+				})
+			};
 		}
 	}
 
