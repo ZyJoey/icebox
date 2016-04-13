@@ -4,7 +4,7 @@
 			{{select.sortord}}
 			<i v-bind:class="[showSelect ? 'down-triangle' : 'left-triangle']"></i>
 		</div>
-		<ul class="select-option-wrapper" v-show="showSelect" @touchend.stop="selectSortord($event)">
+		<ul class="select-option-wrapper" v-show="showSelect" @touchend.stop.prevent="selectSortord($event)">
 			<li class="option" v-for='item in sortord' :class="[select.sortord === item ? 'current' : '']">{{item}}</li>
 		</ul>
 
