@@ -17,7 +17,7 @@ router.map({
 			"/":{
 				component:require("component/menu/menu")
 			},
-			"list":{
+			"list/:type":{
 				component:require("component/list/list")
 			},
 			"add":{

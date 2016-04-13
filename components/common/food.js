@@ -11,7 +11,7 @@ var Food = {
 		{"value":"piece","text":"件"}
 	],
 	categoryOptions : [
-		{"value":"meet","text":"肉类"},
+		{"value":"meat","text":"肉类"},
 		{"value":"fruit","text":"蔬果"},
 		{"value":"staple","text":"主食"},
 		{"value":"dessert","text":"小食"},
