@@ -1,4 +1,4 @@
-var deadline = require('common/deadline')
+var baseInfo = require('common/baseInfo');
 require("common/dialog");
 
 module.exports = Vue.extend({
@@ -16,17 +16,7 @@ module.exports = Vue.extend({
 		type = this.$route.params.type;
 		type = type === "all" ? "" : type;
 		if(!this.$parent.list){
-			this.$http.get('server/foodList').then(function(data){
-				if(data.data.code == 0){
-					result = data.data.result;
-					for(i = 0; i < result.length;i++){
-						result[i].deadline = deadline(result[i].prodDate,result[i].saveTime,result[i].saveUnit.text);
-					}
-					this.$parent.list = result;
-				}else{
-					dialog.info(data.data.msg);
-				}
-			})
+			baseInfo.getFoodlist(this);
 		}
 		return {
 			sortord:sortord,

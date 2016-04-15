@@ -1,7 +1,7 @@
 <div class="container">
 	<form class="search-form">
 		<ul class="label-wrapper" @touchend.stop="selectLabel($event)">
-			<li href="" class="search-label" v-for="item in labelItems" data-index="{{$index}}"  v-bind:class="{'selected':isSelected[$index]}">{{item.name}}</li>
+			<li class="search-label" v-for="item in labelItems" data-index="{{$index}}"  :class="{'selected':isSelected[$index]}">{{item}}</li>
 		</ul>
 		<div class="text-line">
 			<input type="text" class="text" name="" placeholder="想吃什么呢……" v-model="searchThing"> 
