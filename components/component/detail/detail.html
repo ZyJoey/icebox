@@ -20,7 +20,7 @@
 			<li>
 				<span class="name">含量</span>
 				<div class="list-right">
-				<input type="tel" name="num" value="" placeholder="数量" size="4" v-model="food.num" v-validate:num="['required']">
+				<input type="tel" name="num" placeholder="数量" size="4" v-model="food.num" v-validate:num="['required']">
 				<select class="rtl" v-model="food.unit">
 					<option v-for="option in food.UnitOptions" :value="option">{{option.text}}</option>
 				</select>
@@ -49,18 +49,24 @@
 			</li> 
 			<li class="no-border" v-show="isDetail">
 				<div class="list-right">
-					<p>
+					<p v-if="indate > 0">
 						还有
-						<span class="deadline color-red">两</span>
+						<span class="deadline" :class="{'color-red':indate<=7,'color-orange':indate>7&&indate<=30,'color-green':indate>30}">{{indate}}</span>
 						<span class="deadline-unit">天</span>
 						过期
+					</p>
+					<p v-else class="color-red">
+						已过期
 					</p>
 				</div>
 			</li>
 		</ul>
 		<div class="detail-btn">
 			<button type="button" class="btn form-btn" :class="{'btn-default':!$validation1.valid}"
-			:disabled="!$validation1.valid" @click.stop="submitForm">确 认</button>
+			:disabled="!$validation1.valid" @click.stop="submitForm">
+				<span v-if="isDetail && indate<0">删 除</span>
+				<span v-else>保 存</span>
+			</button>
 		</div>
 	</form>
 	</validator>

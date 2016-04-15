@@ -22,8 +22,7 @@ module.exports = Vue.extend({
 		createFood.saveUnit = createFood.saveUnitOptions[0];
 		createFood.saveImg = "";
 		return{
-			"food":createFood,
-			"imgPosition":"50% 50%"
+			"food":createFood
 		}
 	},
 	methods:{
@@ -36,7 +35,7 @@ module.exports = Vue.extend({
 				fileUploadFormData.append('image',uploadImg.files[0]);
 				this.$http.post('server/uploadImg',fileUploadFormData).then(function (data){
 					if(data.data.code === 0){
-						this.food.saveImg = data.data.result;
+						that.food.saveImg = data.data.result;
 						createFood();
 					}else{
 						dialog.info({content:data.data.msg});

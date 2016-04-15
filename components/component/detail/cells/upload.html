@@ -1,5 +1,5 @@
 <div class="wrap-img">
-<div class="set-img" id="setImg" @touchstart="changePostion($event)" @touchend="stopMove($event)" data-position = "{{$parent.food.imgPosition}}" >
+<div class="set-img" id="setImg" @touchstart="changePostion($event)" @touchend="stopMove($event)"  :style="{backgroundImage:'url('+bgImg+')',backgroundPosition:$parent.food.imgPosition,backgroundSize:'100% auto'}">
 		<input id="uploadImg" type="file" class="input-img" accept="image/gif, image/jpeg, image/png" @change="setImage($event)">
 		<p>{{upLoadText}}</p>
 	</div>

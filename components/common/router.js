@@ -4,6 +4,7 @@ var notFound = Vue.extend({
 })
 
 Vue.use(VueRouter);
+Vue.config.debug = true;
 
 var router = new VueRouter();
 
@@ -43,5 +44,4 @@ router.map({
 		}
 	}
 })
-
 router.start(app,"#app");

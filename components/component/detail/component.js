@@ -2,18 +2,23 @@ var util = require("common/util");
 module.exports = Vue.component("uploadImage",{
 	template:__inline("cells/upload.html"),
 	data:function(){
+		if(this.$parent.food.saveImg){
+			bgImg = this.$parent.food.saveImg;
+		}else{
+			bgImg = "";
+		}
 		return {
-			"isChangeImg" : false
+			"isChangeImg" : false,
+			"bgImg":bgImg
 		}
 	},
 	methods:{
 		setImage:function($event){
+			var that = this;
 			var reader = new FileReader();
 			var setImg = document.getElementById("setImg")
 			reader.onloadend = function(e){
-				setImg.style.backgroundImage = "url("+e.target.result+")";
-				setImg.style.backgroundSize = "100% auto";
-				setImg.style.backgroundPosition = "50% 50%";
+				that.bgImg = e.target.result ;
 			}
 			reader.readAsDataURL($event.target.files[0]);
 			this.$parent.food.saveImg = $event.target.files[0].name;
