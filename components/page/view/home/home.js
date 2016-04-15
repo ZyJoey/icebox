@@ -11,7 +11,8 @@ module.exports = Vue.extend({
 			"curLeft":0,
 			"header":{
 				"title":""
-			}
+			},
+			"list":""
 		}
 	},
 	methods:{

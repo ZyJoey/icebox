@@ -53,7 +53,8 @@ module.exports = Vue.extend({
 						dialog.confirm({content:"保存成功,是否继续添加？"},function(){
 							that.$router.go('/add');
 						},function(){
-							that.$router.go('/list');
+							this.$parent.list = null;
+							that.$router.go('/list/all');
 						});
 
 					}else{

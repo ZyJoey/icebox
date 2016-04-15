@@ -7,32 +7,33 @@ module.exports = Vue.extend({
 	data:function(){
 		var i,
 		result,
-		list = [],
-		sortord = ["按即将过期时间排序(默认)","按放入时间排序(正序)","按放入时间排序(倒序)"],
+		sortord = ["按即将过期时间排序","按放入时间排序(正序)","按放入时间排序(倒序)"],
 		select = {
 			"sortord":sortord[0]
 		},
 		listOrder = 'deadline',
+		sortKey = 1;
 		type = this.$route.params.type;
 		type = type === "all" ? "" : type;
-		this.$http.get('server/foodList').then(function(data){
-			if(data.data.code == 0){
-				result = data.data.result;
-				for(i = 0; i < result.length;i++){
-					result[i].deadline = deadline(result[i].prodDate,result[i].saveTime,result[i].saveUnit.text);
+		if(!this.$parent.list){
+			this.$http.get('server/foodList').then(function(data){
+				if(data.data.code == 0){
+					result = data.data.result;
+					for(i = 0; i < result.length;i++){
+						result[i].deadline = deadline(result[i].prodDate,result[i].saveTime,result[i].saveUnit.text);
+					}
+					this.$parent.list = result;
+				}else{
+					dialog.info(data.data.msg);
 				}
-				this.list = result;
-
-			}else{
-				dialog.info(data.data.msg);
-			}
-		})
+			})
+		}
 		return {
-			list:list,
 			sortord:sortord,
 			showSelect:false,
 			select:select,
 			listOrder:listOrder,
+			sortKey:sortKey,
 			type:type
 		}
 	},
@@ -44,6 +45,20 @@ module.exports = Vue.extend({
 		selectSortord:function(event){
 			var val = event.target.textContent;
 			if(val !== ""){
+				switch (val){
+					case "按即将过期时间排序":
+						this.listOrder = "deadline";
+						this.sortKey = 1;
+						break;
+					case "按放入时间排序(正序)":
+						this.listOrder = "storedDate";
+						this.sortKey = 1;
+						break;
+					case "按放入时间排序(倒序)":
+						this.listOrder = "storedDate";
+						this.sortKey = -1;
+						break;
+				}
 				this.select.sortord = val;
 				this.showSelect = false;
 			}

@@ -10,7 +10,7 @@
 
 	</div>
 	<ul class="list">
-		<a v-link="'/detail/'+food.id"  v-for="food in list | orderBy listOrder | filterBy type in 'category.value' ">
+		<a v-link="'/detail/'+food.id"  v-for="food in $parent.list | orderBy listOrder sortKey| filterBy type in 'category.value' ">
 			<li class="list-li">
 			<span class="name">{{food.name}}</span>
 				<span class="net-content">{{food.num}}</span>
@@ -18,7 +18,7 @@
 				<div class="list-right">
 					<p v-if="food.deadline > 0">
 						还有
-						<span class="deadline">{{food.deadline}}</span>
+						<span class="deadline" :class="{'color-red':food.deadline<=7,'color-orange':food.deadline>7&&food.deadline<=30,'color-green':food.deadline>30}">{{food.deadline}}</span>
 						<span class="deadline-unit">天</span>
 						过期 
 					</p>
