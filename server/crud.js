@@ -176,3 +176,49 @@ exports.createFood = function(req,res){
 	}
 	
 }
+
+export.updateFood = function(req,res){
+	var username = res.session.name,
+		id = req.params.id;
+		data = {};
+	db.collection("list").update({"username":username,"foodList.id":id},{$set:{
+		"foodList.$.name":req.body.name,
+		"foodList.$category":req.body.category,
+		"foodList.$num": req.body.num,
+		"foodList.$unit":req.body.unit,
+		"foodList.$prodDate":req.body.prodDate,
+		"foodList.$storedDate":req.body.storedDate,
+		"foodList.$saveTime":req.body.saveTime,
+		"foodList.$saveUnit":req.body.saveUnit,
+		"foodList.$saveImg":req.body.saveImg,
+		"foodList.$imgPosition":req.body.imgPosition
+	}}},function(err,result){
+		if(!err){
+			data.code = 0;
+			data.msg = "保存成功";
+			res.send(data);
+		}else{
+			data.code = 1;
+			data.msg = "保存失败";
+			res.send(data);
+		}
+	})
+}
+
+export.delFood = function(req,res){
+	var username = req.session.name,
+		id = req.params.id;
+		data  = {};
+	db.collection("list").update({"username":username},{$pull:{"foodList":{"id":id}}},function(err,result){
+		if(!err){
+			data.code = 0;
+			data..msg = "删除成功";
+			res.send(data);
+		}else{
+			data.code = 1;
+			data.msg = "操作失败";
+			res.send(data);
+		}
+	})
+
+}

@@ -6,6 +6,8 @@ module.exports = Vue.component("uploadImage",{
 			bgImg = this.$parent.food.saveImg;
 		}else if(this.$parent.isDetail){
 			bgImg = "http://7xsnyd.com2.z0.glb.clouddn.com/photo-1436564989038-18b9958df72b.jpg?imageView2/1/w/357/h/150/interlace/0/q/100";
+		}else{
+			bgImg = "";
 		}
 		return {
 			"isChangeImg" : false,

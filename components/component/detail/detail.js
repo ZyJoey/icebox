@@ -35,7 +35,7 @@ module.exports = Vue.extend({
 	},
 	methods:{
 		submitForm:function(){
-
+			
 		}
 	}
 })
