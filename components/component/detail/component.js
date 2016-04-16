@@ -4,8 +4,8 @@ module.exports = Vue.component("uploadImage",{
 	data:function(){
 		if(this.$parent.food.saveImg){
 			bgImg = this.$parent.food.saveImg;
-		}else{
-			bgImg = "";
+		}else if(this.$parent.isDetail){
+			bgImg = "http://7xsnyd.com2.z0.glb.clouddn.com/photo-1436564989038-18b9958df72b.jpg?imageView2/1/w/357/h/150/interlace/0/q/100";
 		}
 		return {
 			"isChangeImg" : false,
@@ -50,7 +50,7 @@ module.exports = Vue.component("uploadImage",{
 	},
 	computed:{
 		upLoadText:function(){
-			if(this.$parent.food.saveImg){
+			if(this.bgImg){
 				return "";
 			}else{
 				return "--请选择上传图片--"
