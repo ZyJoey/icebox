@@ -1,5 +1,6 @@
 var baseInfo = require('common/baseInfo');
-var toFood = require("common/food");
+var dialog = require('common/dialog');
+require("common/food");
 require("common/util");
 
 module.exports = Vue.extend({
@@ -35,6 +36,37 @@ module.exports = Vue.extend({
 	},
 	methods:{
 		submitForm:function(){
+			var that = this;
+			if(this.indate < 0 ){
+				this.$http.delete('server/delFood',{"id":this.$route.params.id}).then(function (data){
+					if(data.data.code === 0){
+						this.$parent.list = null;
+						dialog.info({content:data.data.msg});
+						that.$router.go('/list/all');
+					}else{
+						dialog.info({content:data.data.msg});
+					}
+				})
+			}else{
+				if(this.food.saveImg && !/^http\:\/\/127\.0\.0\.1\:3000\/photo\/.*$/.test(this.food.saveImg)){
+					baseInfo.uploadImg(this,updateFood);
+				}else{
+					updateFood();
+				}
+			}
+			function updateFood(){
+				option = JSON.stringify(that.food);
+				that.$http.put('server/updateFood/'+that.$route.params.id,option).then(function (data){
+					if(data.data.code === 0){
+						that.$parent.list = null;
+						dialog.info({content:data.data.msg});
+						that.$router.go('/list/all');
+
+					}else{
+						dialog.info({content:data.data.msg});
+					}
+				})
+			}
 			
 		}
 	}

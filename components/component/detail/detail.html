@@ -63,7 +63,7 @@
 		</ul>
 		<div class="detail-btn">
 			<button type="button" class="btn form-btn" :class="{'btn-default':!$validation1.valid}"
-			:disabled="!$validation1.valid" @click.stop="submitForm">
+			 @click.stop="submitForm()">
 				<span v-if="isDetail && indate<0">删 除</span>
 				<span v-else>保 存</span>
 			</button>

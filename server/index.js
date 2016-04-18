@@ -32,7 +32,7 @@ app.get('/photo/:id',photo.showImg);
 
 app.put('/updateFood/:id',crud.updateFood);
 
-app.delete('/delFood/:id',crud.delFood);
+app.delete('/delFood',crud.delFood);
 
 server.listen(3000);
 console.log('Listening on port 3000...');

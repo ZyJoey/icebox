@@ -19,6 +19,21 @@ function getFoodlist(that,fn){
 		}
 	})
 }
+function uploadImg(that,fn){
+	var fileUploadFormData = new FormData();
+	var uploadImg = document.getElementById("uploadImg");
+	fileUploadFormData.append('image',uploadImg.files[0]);
+	that.$http.post('server/uploadImg',fileUploadFormData).then(function (data){
+		if(data.data.code === 0){
+			that.food.saveImg = data.data.result;
+			fn();
+		}else{
+			dialog.info({content:data.data.msg});
+			return false;
+		}
+	})
+}
 module.exports = {
-	getFoodlist:getFoodlist
+	getFoodlist:getFoodlist,
+	uploadImg:uploadImg
 }

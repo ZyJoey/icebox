@@ -1,5 +1,6 @@
 var util = require("common/util");
 var dialog = require("common/dialog");
+var baseInfo = require("common/baseInfo");
 require("common/food");
 require("component");
 
@@ -29,19 +30,8 @@ module.exports = Vue.extend({
 		submitForm:function(){
 			var option,
 				that = this ;
-			var fileUploadFormData = new FormData();
-			var uploadImg = document.getElementById("uploadImg");
 			if(this.food.saveImg !== ""){
-				fileUploadFormData.append('image',uploadImg.files[0]);
-				this.$http.post('server/uploadImg',fileUploadFormData).then(function (data){
-					if(data.data.code === 0){
-						that.food.saveImg = data.data.result;
-						createFood();
-					}else{
-						dialog.info({content:data.data.msg});
-						return false;
-					}
-				})
+				baseInfo.uploadImg(this,createFood);
 			}else{
 				createFood();
 			}
@@ -52,7 +42,7 @@ module.exports = Vue.extend({
 						dialog.confirm({content:"保存成功,是否继续添加？"},function(){
 							that.$router.go('/add');
 						},function(){
-							this.$parent.list = null;
+							that.$parent.list = null;
 							that.$router.go('/list/all');
 						});
 
