@@ -177,7 +177,7 @@ exports.createFood = function(req,res){
 	
 }
 
-export.updateFood = function(req,res){
+exports.updateFood = function(req,res){
 	var username = res.session.name,
 		id = req.params.id;
 		data = {};
@@ -192,7 +192,7 @@ export.updateFood = function(req,res){
 		"foodList.$saveUnit":req.body.saveUnit,
 		"foodList.$saveImg":req.body.saveImg,
 		"foodList.$imgPosition":req.body.imgPosition
-	}}},function(err,result){
+	}},function(err,result){
 		if(!err){
 			data.code = 0;
 			data.msg = "保存成功";
@@ -205,14 +205,14 @@ export.updateFood = function(req,res){
 	})
 }
 
-export.delFood = function(req,res){
+exports.delFood = function(req,res){
 	var username = req.session.name,
 		id = req.params.id;
 		data  = {};
 	db.collection("list").update({"username":username},{$pull:{"foodList":{"id":id}}},function(err,result){
 		if(!err){
 			data.code = 0;
-			data..msg = "删除成功";
+			data.msg = "删除成功";
 			res.send(data);
 		}else{
 			data.code = 1;
