@@ -171,7 +171,7 @@
 	list-style: none;
 	margin-left: 15px;
 	position: relative;
-	padding: 5px 15px 5px 0;
+	padding: 5px 0;
 	line-height: 1.6;
 	border-bottom: 1px solid #e8e8e8;
 }
@@ -182,17 +182,21 @@
 	display: inline-block;
 }
 .list-btn{
-	margin-left: 10px;
-	padding: 2px 6px;
-	font-size: 12px;
-	line-height: 1.6;
+	position: relative;
+	top: -5px;
+	width: 0;
+	height: 36px;
+	margin-left: 6px;
+	font-size: 16px;
+	font-weight: 100;
 	color: #fff;
 	background-color: #990000;
-	border-color:transparent; 
-	border-radius: 5px;
-	transition:all 2s ease;
+	border-color:transparent;
+	transition: width .3s;
+	float: right;
 	overflow: hidden;
 }
+
 /* .list-num{
 	position: relative;
 	top: 2px;
@@ -224,6 +228,9 @@
 	font-size: 24px;
 	line-height: 150px;
 	margin-left: -91px;
+}
+.detail-ul .list-right{
+	margin-right: 10px;
 }
 .list .no-border{
 	border: none;
@@ -327,11 +334,3 @@
 	-moz-appearance: none;
     	appearance: none;
 }
-
-/* .search-btn{
-	display: block;
-	width: 80%;
-	margin: 0 auto;
-
-}
- */

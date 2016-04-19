@@ -11,10 +11,11 @@
 	</div>
 	<ul class="list">
 		<a v-link="'/detail/'+food.id"  v-for="food in $parent.list | orderBy listOrder sortKey| filterBy type in 'category.value' ">
-			<li class="list-li">
-			<span class="name">{{food.name}}</span>
+			<li class="list-li" @touchstart="showBtn($index,$event)">
+				<span class="name">{{food.name}}</span>
 				<span class="net-content">{{food.num}}</span>
 				<span class="unit">{{food.unit.text}}</span>
+				<button type="button" class="list-btn btn" :style="{width:btnW[$index]+'px'}" @touchend.prevent="removeFood($index,food.id)">删除</button>
 				<div class="list-right">
 					<p v-if="food.deadline > 0">
 						还有
@@ -26,6 +27,7 @@
 						已过期
 					</p>
 				</div>
+				
 			</li>
 		</a>
 	</ul>
