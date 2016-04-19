@@ -267,7 +267,7 @@
 .category h2,.category h3{
 	color: #fff;
 	text-align: center;
-	line-height: 1.6;
+	line-height: 2;
 	font-weight: normal;
 }
 .category h2{
@@ -292,7 +292,7 @@
 	background-image: url("../images/bg/category_flavour.png"); 
 }
 .category{
-	padding: 40px 0;
+	padding: 50px 0;
 	margin-bottom: 2px;
 	box-shadow: 0 5px 10px #000;
 	background-repeat: no-repeat;
