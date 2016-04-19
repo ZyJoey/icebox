@@ -14,7 +14,7 @@
 		</ul>
 		<ul @touchend="showSide()">
 			<a><li><i class="sprite sprite-menu-hamburger"></i>修改密码</li></a>
-			<a><li><i class="sprite sprite-menu-juice"></i>退出账号</li></a>
+			<a @click.stop.prevent="returnSign()"><li><i class="sprite sprite-menu-juice"></i>退出账号</li></a>
 		</ul>
 	</div>
 </div>

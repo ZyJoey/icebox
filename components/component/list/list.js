@@ -66,7 +66,7 @@ module.exports = Vue.extend({
 					} 
 					that.btnW.$set([i],0);
 				}
-				if(x < 0 && x > -30){
+				if(x < -5 && x > -30){
 					that.btnW.$set([index],-2*x);
 				}else if(x <= -30){
 					that.btnW.$set([index],60);

@@ -34,5 +34,15 @@ app.put('/updateFood/:id',crud.updateFood);
 
 app.delete('/delFood',crud.delFood);
 
+app.get('/returnSign',function (req,res){
+	var data = {};
+	req.session.username = null;
+	data = {
+		"code":0,
+		"msg":"退出成功"
+	};
+	res.send(data);
+})
+
 server.listen(3000);
 console.log('Listening on port 3000...');
