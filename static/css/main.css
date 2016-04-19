@@ -171,7 +171,7 @@
 	list-style: none;
 	margin-left: 15px;
 	position: relative;
-	padding: 5px 0;
+	padding: 10px 0;
 	line-height: 1.6;
 	border-bottom: 1px solid #e8e8e8;
 }
@@ -183,14 +183,14 @@
 }
 .list-btn{
 	position: relative;
-	top: -5px;
+	top: -10px;
 	width: 0;
-	height: 36px;
+	height: 46px;
 	margin-left: 6px;
 	font-size: 16px;
 	font-weight: 100;
 	color: #fff;
-	background-color: #990000;
+	background-color: #ff1919;
 	border-color:transparent;
 	transition: width .3s;
 	float: right;
@@ -243,7 +243,7 @@
 	font-size: 16px;
 	padding: 4px 0;
 	line-height: 1.6;
-	background-color: #990000;
+	background-color: #b20000;
 }
 .detail-btn{
 	margin: 30px 5px 0;
@@ -258,6 +258,7 @@
 	background-color: transparent;
 }
 .list li select{
+	min-width:40px;
 	border: none;
 	font-size: 16px;
 	background-color: transparent;
