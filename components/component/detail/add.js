@@ -40,7 +40,7 @@ module.exports = Vue.extend({
 				that.$http.post('server/createFood',option).then(function (data){
 					if(data.data.code === 0){
 						dialog.confirm({content:"保存成功,是否继续添加？"},function(){
-							that.$router.go('/add');
+							window.location.reload();
 						},function(){
 							that.$parent.list = null;
 							that.$router.go('/list/all');

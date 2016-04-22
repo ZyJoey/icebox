@@ -26,7 +26,7 @@ module.exports = Vue.extend({
 			listOrder:listOrder,
 			sortKey:sortKey,
 			type:type,
-			btnW : new Array(this.$parent.list.length)
+			btnW : new Array()
 		}
 	},
 	methods:{
