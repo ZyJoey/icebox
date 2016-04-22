@@ -318,6 +318,9 @@
 .search-form .detail-btn{
 	margin-top: 20px;
 }
+.search-form .form-btn{
+	background-color: rgb(255,121,41);
+}
 .text-line{
 	margin: 0 7px;
 }
