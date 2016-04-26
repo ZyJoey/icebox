@@ -1,10 +1,12 @@
+Vue.use(VueRouter);
+Vue.config.debug = true;
+
 //404
 var notFound = Vue.extend({
 	template:"<p>呀~什么都没有┑(￣Д ￣)┍</p>"
 })
 
-Vue.use(VueRouter);
-Vue.config.debug = true;
+
 
 var router = new VueRouter();
 
