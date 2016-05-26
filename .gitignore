@@ -7,3 +7,4 @@ dest/*
 oldviews
 task.md
 bower_components
+server/photos/
