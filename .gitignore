@@ -2,7 +2,7 @@ node_modules
 dist/*
 dest/*
 *.log
-.idea
+.idea/
 */images
 oldviews
 task.md

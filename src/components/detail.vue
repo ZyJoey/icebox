@@ -1,0 +1,82 @@
+<template>
+    <div class="container" >
+        <validator name="validation1">
+            <form novalidate>
+                <upload-image></upload-image>
+                <ul class="list clearfix detail-ul">
+                    <li>
+                        <span class="name">名称</span>
+                        <div class="list-right">
+                            <input type="text" name="name" v-model="food.name" placeholder="食物名" v-validate:name="['required']">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="name">类别</span>
+                        <div class="list-right">
+                            <select class="rtl" name="category" v-model="food.category" v-validate:category="['required']">
+                                <option v-for="option in food.categoryOptions" :value="option">{{option.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="name">含量</span>
+                        <div class="list-right">
+                            <input type="tel" name="num" placeholder="数量" size="4" v-model="food.num" v-validate:num="['required']">
+                            <select class="rtl" v-model="food.unit">
+                                <option v-for="option in food.UnitOptions" :value="option">{{option.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <span class>生产日期</span>
+                        <div class="list-right">
+                            <input type="date" name="prodDate" v-model="food.prodDate" v-validate:prodDate="['required']">
+                        </div>
+                    </li>
+                    <li>
+                        <span class>存放日期</span>
+                        <div class="list-right">
+                            <input type="date" name="storedDate" v-model="food.storedDate" v-validate:storedDate="['required']">
+                        </div>
+                    </li>
+                    <li>
+                        <span class>保质期</span>
+                        <div class="list-right">
+                            <input type="tel" name="saveTime" v-model="food.saveTime" placeholder="保质期" v-validate:saveTime="['required']">
+                            <select class="rtl" v-model="food.saveUnit" name="saveUnit" v-validate:saveUnit="['required']">
+                                <option v-for="option in food.saveUnitOptions" :value="option">{{option.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="no-border" v-show="isDetail">
+                        <div class="list-right">
+                            <p v-if="indate > 0">
+                                还有
+                                <span class="deadline" :class="{'color-red':indate<=7,'color-orange':indate>7&&indate<=30,'color-green':indate>30}">{{indate}}</span>
+                                <span class="deadline-unit">天</span>
+                                过期
+                            </p>
+                            <p v-else class="color-red">
+                                已过期
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="detail-btn">
+                    <button type="button" class="btn form-btn" :class="{'btn-default':!$validation1.valid}"
+                            @click.stop="submitForm()" :disabled="!$validation1.valid">
+                        <span v-if="isDetail && indate<0">删 除</span>
+                        <span v-else>保 存</span>
+                    </button>
+                </div>
+            </form>
+        </validator>
+    </div>
+</template>
+
+<script>
+    import uploadImage from '../components/uploadImage.vue'
+    export default{
+        components: {uploadImage}
+    }
+</script>
