@@ -1,0 +1,19 @@
+{
+  "app": 3000,
+  "session": {
+    "resave": true,
+    "saveUninitialized": true,
+    "secret": "icebox",
+    "cookie": {
+      "maxAge": 2592000000
+    }
+  },
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "db": "icebox",
+    "max": 10,
+    "min": 1,
+    "timeout": 3600000
+  }
+}

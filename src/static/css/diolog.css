@@ -1,0 +1,52 @@
+#dialog{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-family: "Microsoft YaHei";
+    background-color: rgba(0,0,0,0.5);
+}
+#dialog .d-main{
+    position: fixed;
+    top: 25%;
+    margin:0 50%;
+    left: -148px;
+    width: 296px;
+    color: #333;
+    background-color: #fff;
+    border-radius:10px;
+}
+#dialog .d-title{
+    width: 100%;
+    height: 32px;
+    color: #fff;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(15,34,42,0.9);
+}
+#dialog .d-content{
+    padding: 20px;
+    text-align: center;
+}
+#dialog .d-btn-wrap{
+    position: relative;
+    bottom: 0;
+    border-top: 1px solid #efefef;
+}
+#dialog .d-btn:nth-child(2){
+    border-left: 1px solid #efefef;
+}
+#dialog .d-btn{
+    padding: 8px 0;
+    background: transparent;
+    border:none;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+}
+#dialog .w-50{
+    width: 49%;
+}
+#dialog .w-100{
+    width: 100%;
+}
