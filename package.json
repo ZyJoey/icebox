@@ -1,20 +1,55 @@
 {
-	"name" : "icebox",
-	"version" : "0.0.1",
-	"description" : "A mobile management system of icebox.",
-	"keywords":["web app","fis3-vue"],
-	"author": "zy<zhouyi0112@126.com>",
-	"resposity" : {
-		"type" : "git",
-		"url" : "https://github.com/ZyJoey/icebox.git"
-	},
-	"dependencies" : {
-		"express" : "3.2.x",
-		"mongodb" : "~2.0",
-		"JSV" : "4.0.x" ,
-		"fis3-hook-module": "*",
-		"fis3-postpackager-loader": "*",
-		"fis-parser-less": "*",
-		"fis-preprocessor-annotate": "*"
-	}
+  "name": "icebox",
+  "version": "0.0.1",
+  "description": "Vue+node+webpack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --no-info",
+    "build": "cross-env NODE_ENV=production && webpack --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ypf93/icebox/tree/webpack"
+  },
+  "keywords": [
+    "vue",
+    "node",
+    "webpack"
+  ],
+  "author": "ifree",
+  "license": "MIT",
+  "homepage": "https://github.com/ypf93/icebox/blob/webpack/README.md",
+  "dependencies": {
+    "blueimp-md5": "^2.3.0",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.19",
+    "morgan": "^1.7.0",
+    "vue": "^1.0.21",
+    "vue-element": "^1.0.1",
+    "vue-resource": "^0.7.0",
+    "vue-router": "^0.7.13",
+    "vue-validator": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.7.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-runtime": "^6.6.1",
+    "cross-env": "^1.0.7",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.15.0",
+    "json-loader": "^0.5.4",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.3.2",
+    "vue-html-loader": "^1.2.2",
+    "vue-loader": "^8.2.2",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.12.15",
+    "webpack-dev-server": "^1.14.1"
+  }
 }
