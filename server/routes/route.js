@@ -6,6 +6,16 @@ var crud = require('../models/crud')
 var photo = require('../models/photo')
 
 module.exports = function (app) {
+    app.get('/',function(request,response){
+        var arr = [
+            {"name":"可乐","num":"2","cell":"瓶","date":"1","datecell":"天"},
+            {"name":"养乐多","num":"1","cell":"瓶","date":"2","datecell":"天"},
+            {"name":"橙汁","num":"3","cell":"瓶","date":"1","datecell":"天"},
+            {"name":"芬达","num":"1","cell":"瓶","date":"2","datecell":"天"},
+        ];
+        response.send(arr);
+    })
+    
     app.post('/createUser',crud.createUser);
 
     app.post('/register',crud.register);

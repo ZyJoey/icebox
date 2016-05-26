@@ -1,0 +1,11 @@
+<div>
+	<form class="center-form" id="myForm">
+	<input type="text" name="username"  class="text inputt" value="" placeholder="请输入用户名" v-model="user.username">
+		<input type="password" name="password" class="text inputt"  placeholder="密码" v-model="user.password">
+		<input type="password" name="repeatpwd" value="" class="text inputt"  placeholder="重复密码" v-model="user.repeatpwd">
+		<button type="submit" class="text btn" @touchend.prevent="signIn()">注册</button>
+	</form>
+	<div class="form-link-wrap">
+		<a v-link="{path:'/sign'}" class="form-link">返回登陆</a>
+	</div>
+</div>
