@@ -86,3 +86,5 @@ var dialog = (function(){
 
     }
 })();
+
+module.exports = dialog;
