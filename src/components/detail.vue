@@ -13,8 +13,8 @@
                     <li>
                         <span class="name">类别</span>
                         <div class="list-right">
-                            <select class="rtl" name="category" v-model="food.category" v-validate:category="['required']">
-                                <option v-for="option in food.categoryOptions" :value="option">{{option.text}}</option>
+                            <select class="rtl" name="category" v-model="food.category.value" v-validate:category="['required']">
+                                <option v-for="option in food.categoryOptions" :value="option.value">{{option.text}}</option>
                             </select>
                         </div>
                     </li>
@@ -22,8 +22,8 @@
                         <span class="name">含量</span>
                         <div class="list-right">
                             <input type="tel" name="num" placeholder="数量" size="4" v-model="food.num" v-validate:num="['required']">
-                            <select class="rtl" v-model="food.unit">
-                                <option v-for="option in food.UnitOptions" :value="option">{{option.text}}</option>
+                            <select class="rtl" v-model="food.unit.value">
+                                <option v-for="option in food.UnitOptions" :value="option.value">{{option.text}}</option>
                             </select>
                         </div>
                     </li>
@@ -43,8 +43,8 @@
                         <span class>保质期</span>
                         <div class="list-right">
                             <input type="tel" name="saveTime" v-model="food.saveTime" placeholder="保质期" v-validate:saveTime="['required']">
-                            <select class="rtl" v-model="food.saveUnit" name="saveUnit" v-validate:saveUnit="['required']">
-                                <option v-for="option in food.saveUnitOptions" :value="option">{{option.text}}</option>
+                            <select class="rtl" v-model="food.saveUnit.value" name="saveUnit" v-validate:saveUnit="['required']">
+                                <option v-for="option in food.saveUnitOptions" :value="option.value">{{option.text}}</option>
                             </select>
                         </div>
                     </li>
@@ -64,7 +64,7 @@
                 </ul>
                 <div class="detail-btn">
                     <button type="button" class="btn form-btn" :class="{'btn-default':!$validation1.valid}"
-                            @click.stop="submitForm()" :disabled="!$validation1.valid">
+                            @click.stop="submit" :disabled="!$validation1.valid">
                         <span v-if="isDetail && indate<0">删 除</span>
                         <span v-else>保 存</span>
                     </button>
@@ -77,6 +77,17 @@
 <script>
     import uploadImage from '../components/uploadImage.vue'
     export default{
-        components: {uploadImage}
+        components: {uploadImage},
+        props: {
+          food: Object
+        },
+        created() {
+          console.log(this.food);
+        },
+        methods: {
+          submit() {
+            this.$emit('submit');
+          }
+        }
     }
 </script>

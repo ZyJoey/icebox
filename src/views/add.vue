@@ -1,5 +1,7 @@
 <template>
-    <detail></detail>
+  <div>
+    <detail :food="food" v-on:submit="submitForm"></detail>
+  </div>
 </template>
 
 <script>
@@ -11,27 +13,25 @@
 
     export default{
         data:function(){
-            var curDate,createFood;
             var curDate = new Date().format();
-
             //设置默认日期
             var createFood = food({
                 "prodDate":curDate,
                 "storedDate":curDate
-            })
+            });
             //设置默认单位
             createFood.unit = createFood.UnitOptions[0];
             createFood.category = createFood.categoryOptions[0];
             createFood.saveUnit = createFood.saveUnitOptions[0];
             createFood.saveImg = "";
             return{
-                "food":createFood
+                food: createFood
             }
         },
         methods:{
             submitForm:function(){
                 var option,
-                        that = this ;
+                    that = this ;
                 if(this.food.saveImg !== ""){
                     baseInfo.uploadImg(this,createFood);
                 }else{
