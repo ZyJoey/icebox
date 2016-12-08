@@ -11,9 +11,9 @@ module.exports = {
         app: './src/main.js'
     },
     output: {
-        path: './dist/static',
+        path: './dist',
         filename: '[name].js',
-        chunkFilename: '[id].js'
+        chunkFilename: '[name].js'
     },
     module: {
         loaders: [{
@@ -34,14 +34,14 @@ module.exports = {
             loader: 'url',
             query: {
                 limit: 1024 * 10,
-                name: '[name].[hash:20].[ext]'
+                name: '[name].[ext]'
             }
         }, {
             test: /\.(svg|woff2?|eot|ttf|otf)$/,
             loader: 'url',
             query: {
                 limit: 1024 * 20,
-                name: '[name].[hash:20].[ext]'
+                name: '[name].[ext]'
             }
         }]
     },
@@ -49,7 +49,7 @@ module.exports = {
         // 自动生成HTML文件
         new HtmlWebpackPlugin({
             template: 'index.html',
-            filename: '../index.html',
+            filename: 'index.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -58,7 +58,7 @@ module.exports = {
         }),
 
         // 提取css
-        new ExtractTextPlugin('[name].[contenthash:20].css', {
+        new ExtractTextPlugin('[name].css', {
             allChunks: true
         })
     ],
@@ -84,7 +84,7 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
 
-    module.exports.output.publicPath = 'static/'
+    module.exports.output.publicPath = '/'
 
     module.exports.plugins = (module.exports.plugins || []).concat([
 

@@ -2,7 +2,7 @@
     <div class="wrap-img">
         <div class="set-img" id="setImg" @touchstart="changePostion($event)" @touchend="stopMove($event)"
              data-position="{{$parent.imgPosition}}">
-            <input type="file" class="input-img" v-model="$parent.food.saveImg"
+            <input id="uploadImg" type="file" class="input-img" v-model="$parent.food.saveImg"
                    accept="image/gif, image/jpeg, image/png" @change="setImage($event)">
             <p>{{upLoadText}}</p>
         </div>
